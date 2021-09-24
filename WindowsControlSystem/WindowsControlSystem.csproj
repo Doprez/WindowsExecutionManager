@@ -13,11 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="App.xaml" />
+    <PackageReference Include="ConnectedCanucks.SFTP" Version="1.0.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SFTP\SFTP.csproj" />
+    <Page Include="App.xaml" />
   </ItemGroup>
 
 </Project>

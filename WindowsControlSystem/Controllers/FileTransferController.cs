@@ -1,6 +1,6 @@
-﻿using SFTP.FileTransfer;
-using SFTP.Models;
-using SFTP.Settings;
+﻿using ConnectedCanucks.SFTP.Models;
+using ConnectedCanucks.SFTP.Settings;
+using ConnectedCanucksSFTP.FileTransfer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
