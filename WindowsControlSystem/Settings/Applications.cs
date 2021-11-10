@@ -13,13 +13,17 @@ namespace WindowsControlSystem.Settings
     {      
         public static List<ApplicationCommandsSettings> GetApps()
         {
+            JsonSerializerOptions options = new JsonSerializerOptions()
+            {
+                WriteIndented = true,
+            };
             string file = "applications.json";
             if (File.Exists(file))
             {
                 using (StreamReader r = new StreamReader(file))
                 {
                     string json = r.ReadToEnd();
-                    List<ApplicationCommandsSettings> apps = JsonSerializer.Deserialize<List<ApplicationCommandsSettings>>(json);
+                    List<ApplicationCommandsSettings> apps = JsonSerializer.Deserialize<List<ApplicationCommandsSettings>>(json, options);
                     return apps;
                 }
             }
@@ -39,8 +43,8 @@ namespace WindowsControlSystem.Settings
                                 },
                                 new CommandOptions
                                 {
-                                    Name = "tree command",
-                                    Arguments = "tree"
+                                    Name = "help command",
+                                    Arguments = "help"
                                 },
                                 new CommandOptions
                                 {
@@ -82,7 +86,7 @@ namespace WindowsControlSystem.Settings
                             }
                         }
                     };
-                    var result = JsonSerializer.Serialize(apps);
+                    var result = JsonSerializer.Serialize(apps, options);
                     write.Write(result);
                     return apps;
                 }

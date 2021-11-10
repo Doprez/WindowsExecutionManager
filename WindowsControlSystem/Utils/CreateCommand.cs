@@ -31,15 +31,15 @@ namespace WindowsControlSystem.Utils
 
                 while (!process.StandardOutput.EndOfStream)
                 {
-                    output.Output += "\n" + process.StandardOutput.ReadLineAsync().Result;
+                    output.Output +=process.StandardOutput.ReadLineAsync().Result + "\n";
                 }
                 output.OutputCode = process.ExitCode;
 
                 return await Task.FromResult(output);
             }
-            catch//(Exception exception)
+            catch(Exception exception)
             {
-                return null;
+                return new ProcessOutput { Error = exception.Message, OutputCode = 1};
                 //logging needed
             }
         }
@@ -73,9 +73,9 @@ namespace WindowsControlSystem.Utils
 
                 return await Task.FromResult(output);
             }
-            catch//(Exception exception)
+            catch(Exception exception)
             {
-                return null;
+                return new ProcessOutput { Error = exception.Message, OutputCode = 1 }; 
                 //logging needed
             }
         }
