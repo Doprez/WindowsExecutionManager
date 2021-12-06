@@ -11,7 +11,7 @@ namespace WindowsControlSystem.Settings
 {
     public class Applications
     {      
-        public static List<ApplicationCommandsSettings> GetApps()
+        public static List<ApplicationCommand> GetApps()
         {
             JsonSerializerOptions options = new JsonSerializerOptions()
             {
@@ -23,7 +23,7 @@ namespace WindowsControlSystem.Settings
                 using (StreamReader r = new StreamReader(file))
                 {
                     string json = r.ReadToEnd();
-                    List<ApplicationCommandsSettings> apps = JsonSerializer.Deserialize<List<ApplicationCommandsSettings>>(json, options);
+                    List<ApplicationCommand> apps = JsonSerializer.Deserialize<List<ApplicationCommand>>(json, options);
                     return apps;
                 }
             }
@@ -31,54 +31,54 @@ namespace WindowsControlSystem.Settings
             {
                 using(StreamWriter write = new StreamWriter(file))
                 {
-                    List<ApplicationCommandsSettings> apps = new List<ApplicationCommandsSettings> 
+                    List<ApplicationCommand> apps = new List<ApplicationCommand> 
                     {
-                        new ApplicationCommandsSettings
-                        { ApplicationExe = "cmd.exe", CommandOptions = new List<CommandOptions>
+                        new ApplicationCommand
+                        { ApplicationExe = "cmd.exe", CommandOptions = new List<CommandOption>
                             {
-                                new CommandOptions
+                                new CommandOption
                                 {
                                     Name = "Get IP",
                                     Arguments = "ipconfig"
                                 },
-                                new CommandOptions
+                                new CommandOption
                                 {
                                     Name = "help command",
                                     Arguments = "help"
                                 },
-                                new CommandOptions
+                                new CommandOption
                                 {
                                     Name = "test",
                                     Arguments = "Get-NetIPAddress"
                                 }
                             }
                         },
-                        new ApplicationCommandsSettings
-                        { ApplicationExe = "powershell.exe", CommandOptions = new List<CommandOptions>
+                        new ApplicationCommand
+                        { ApplicationExe = "powershell.exe", CommandOptions = new List<CommandOption>
                             {
-                                new CommandOptions 
+                                new CommandOption 
                                 {
                                     Name = "Get IP",
                                     Arguments = "Get-NetIPAddress"
                                 },
-                                new CommandOptions
+                                new CommandOption
                                 {
                                     Name = "Get IP",
                                     Arguments = "Get-NetIPAddress"
                                 },
-                                new CommandOptions
+                                new CommandOption
                                 {
                                     Name = "Get IP",
                                     Arguments = "Get-NetIPAddress"
                                 }
                             }
                         },
-                        new ApplicationCommandsSettings
+                        new ApplicationCommand
                         {
                             ApplicationExe = "example.ps1",
-                            CommandOptions = new List<CommandOptions>
+                            CommandOptions = new List<CommandOption>
                             {
-                                new CommandOptions
+                                new CommandOption
                                 {
                                     Name = "",
                                     Arguments = ""

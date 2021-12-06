@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace WindowsControlSystem.Models
 {
-    public class ApplicationCommandsSettings
+    public class ApplicationCommand
     {
         public string ApplicationExe { get; set; }
-        public List<CommandOptions> CommandOptions { get; set; }
+        public List<CommandOption> CommandOptions { get; set; }
         
     }
 
-    public class CommandOptions
+    public class CommandOption
     {
         public string Name { get; set; }
         public string Arguments { get; set; }

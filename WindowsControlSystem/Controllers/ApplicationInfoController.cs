@@ -10,7 +10,7 @@ namespace WindowsControlSystem.Controllers
 {
     public class ApplicationInfoController
     {
-        List<ApplicationCommandsSettings> appSettings;
+        List<ApplicationCommand> appSettings;
 
         public ApplicationInfoController()
         {
